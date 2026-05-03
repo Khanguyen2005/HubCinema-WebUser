@@ -5,7 +5,7 @@ End-user web application for the online movie ticket booking system. The app foc
 ## Team
 - **WebUser development**: Khá, Duy Khoa
 - **Backend API development**: Bắc, Thành
-- **Database design**: Khá, Duy Khoa
+- **Database design**: Khá, Duy Khoa, Bắc, Thành
 - **Testing (Selenium UI/integration)**: Khá, Duy Khoa, Bắc, Thành
 
 ## Key features
