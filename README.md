@@ -59,6 +59,7 @@ Test project: **https://github.com/nguyenxuanbac88/sqa-testing-report**
 - **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (see default value in the config file).
 - **Security**: in production, **HTTPS is required**. Ensure TLS is enabled on the backend or terminate TLS at a reverse proxy/ingress.
 - **VNPay**: configured in `appsettings.json` and `appsettings.Development.json` (callback URL for dev).
+- **PayPal**: configure credentials/return URLs in `appsettings.json` or environment variables when enabled.
 - Config can be overridden via **Environment Variables** in production.
 
 ## Run locally
