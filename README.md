@@ -50,8 +50,8 @@ Tóm tắt API:
 - **Mô hình dữ liệu**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
 
 ## Cấu hình
-- **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (mặc định `http://api.dvxuanbac.com:2030/api`).
-- **Khuyến nghị**: dùng HTTPS cho API khi triển khai production để bảo mật dữ liệu.
+- **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (hiện tại trong repo là `http://api.dvxuanbac.com:2030/api`).
+  **Lưu ý bảo mật**: khi triển khai production, hãy đổi sang HTTPS nếu backend hỗ trợ TLS để tránh truyền dữ liệu plaintext.
 - **VNPay**: cấu hình tại `appsettings.json` và `appsettings.Development.json` (callback URL khi dev).
 - Có thể override cấu hình qua **Environment Variables** khi chạy production.
 
