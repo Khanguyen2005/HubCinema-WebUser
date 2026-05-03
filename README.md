@@ -52,12 +52,12 @@ API summary:
 - **Key data models**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
 
 ## Testing (Selenium)
-All four members (Khá, Duy Khoa, Bắc, Thành) also wrote Selenium UI/integration tests for this project.
+The team members (Khá, Duy Khoa, Bắc, Thành) contributed Selenium UI/integration tests for this project.
 Test project: **https://github.com/nguyenxuanbac88/sqa-testing-report**
 
 ## Configuration
 - **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (see default value in the config file).
-  **Security note**: in production, **HTTPS is required**; if the backend has no TLS, place a reverse proxy/ingress to encrypt traffic.
+  **Security note**: in production, **HTTPS is required**. Ensure TLS is enabled on the backend or terminate TLS at a reverse proxy/ingress.
 - **VNPay**: configured in `appsettings.json` and `appsettings.Development.json` (callback URL for dev).
 - Config can be overridden via **Environment Variables** in production.
 
