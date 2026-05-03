@@ -51,6 +51,7 @@ Tóm tắt API:
 
 ## Cấu hình
 - **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (mặc định `http://api.dvxuanbac.com:2030/api`).
+- **Khuyến nghị**: dùng HTTPS cho API khi triển khai production để bảo mật dữ liệu.
 - **VNPay**: cấu hình tại `appsettings.json` và `appsettings.Development.json` (callback URL khi dev).
 - Có thể override cấu hình qua **Environment Variables** khi chạy production.
 
