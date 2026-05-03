@@ -3,16 +3,15 @@
 End-user web application for the online movie ticket booking system. The app focuses on browsing movies, selecting showtimes and seats, adding combos, and completing payments while consuming data from the HubCinema backend API.
 
 ## Team
-- Khá
-- Duy Khoa
-- Bắc
-- Thành
+- **WebUser development**: Khá, Duy Khoa
+- **Backend API development**: Bắc, Thành (Khá, Duy Khoa also contributed to database design)
+- **Testing (Selenium UI/integration)**: Khá, Duy Khoa, Bắc, Thành
 
 ## Key features
 - Browse movies, movie details, and showtimes by cinema/region.
 - Select showtime, seat layout, hold seats, and book tickets.
 - Add food/combos before checkout.
-- Online payment via VNPay and seat status updates after payment.
+- Online payment via VNPay/PayPal and seat status updates after payment.
 - Register/login and view booked tickets.
 - News, promotions, and cinema information pages.
 
@@ -20,7 +19,7 @@ End-user web application for the online movie ticket booking system. The app foc
 - **.NET 8** + **ASP.NET Core MVC (Razor Views)**.
 - **Bootstrap**, **jQuery**, **jQuery Validation** for UI and interactions.
 - **Newtonsoft.Json** for JSON processing.
-- **VNPay** payment integration.
+- **VNPay** and **PayPal** payment integration.
 - **QRCoder** for ticket QR generation.
 - **Session** and **Localization (vi/en)**.
 - **Docker/Compose** for deployment.
