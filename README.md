@@ -51,7 +51,7 @@ Tóm tắt API:
 
 ## Cấu hình
 - **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (xem giá trị mặc định trong file cấu hình).
-  **Lưu ý bảo mật**: khi triển khai production, hãy dùng HTTPS nếu backend hỗ trợ TLS để tránh truyền dữ liệu plaintext.
+  **Lưu ý bảo mật**: khi triển khai production, **bắt buộc** dùng HTTPS; nếu backend chưa có TLS, hãy đặt reverse proxy/ingress để mã hóa đường truyền.
 - **VNPay**: cấu hình tại `appsettings.json` và `appsettings.Development.json` (callback URL khi dev).
 - Có thể override cấu hình qua **Environment Variables** khi chạy production.
 
