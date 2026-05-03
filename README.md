@@ -4,7 +4,8 @@ End-user web application for the online movie ticket booking system. The app foc
 
 ## Team
 - **WebUser development**: Khá, Duy Khoa
-- **Backend API development**: Bắc, Thành (Khá, Duy Khoa also contributed to database design)
+- **Backend API development**: Bắc, Thành
+- **Database design**: Khá, Duy Khoa
 - **Testing (Selenium UI/integration)**: Khá, Duy Khoa, Bắc, Thành
 
 ## Key features
@@ -26,7 +27,7 @@ End-user web application for the online movie ticket booking system. The app foc
 
 ## High-level architecture (WebUser)
 - **Controllers** handle booking flow, movies/cinemas, accounts, news.
-- **Services**: VNPay + Transaction.
+- **Services**: VNPay, PayPal + Transaction.
 - **Models/Views**: data models and Razor views.
 - **Middleware**: token validation for protected flows.
 - **HttpClient** to call the backend API.
