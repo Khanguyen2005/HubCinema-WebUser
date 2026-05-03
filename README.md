@@ -52,7 +52,7 @@ API summary:
 - **Key data models**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
 
 ## Testing (Selenium)
-All four members (Khá, Duy Khoa, Bắc, Thành) also wrote Selenium unit/UI tests for this project.
+All four members (Khá, Duy Khoa, Bắc, Thành) also wrote Selenium UI/integration tests for this project.
 Test project: **https://github.com/nguyenxuanbac88/sqa-testing-report**
 
 ## Configuration
