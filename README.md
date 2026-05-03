@@ -1,69 +1,75 @@
 # HubCinema WebUser
 
-Giao diện web dành cho người dùng cuối của hệ thống đặt vé xem phim online. Ứng dụng tập trung vào trải nghiệm đặt vé, chọn ghế, chọn combo và thanh toán, đồng thời tiêu thụ dữ liệu từ API backend HubCinema.
+End-user web application for the online movie ticket booking system. The app focuses on browsing movies, selecting showtimes and seats, adding combos, and completing payments while consuming data from the HubCinema backend API.
 
-## Thành viên
+## Team
 - Khá
 - Duy Khoa
+- Bắc
+- Thành
 
-## Tính năng chính
-- Xem danh sách phim, chi tiết phim và lịch chiếu theo rạp/khu vực.
-- Chọn suất chiếu, sơ đồ ghế, giữ ghế và đặt vé.
-- Chọn combo/đồ ăn kèm trước khi thanh toán.
-- Thanh toán online qua VNPay và cập nhật trạng thái ghế sau thanh toán.
-- Đăng ký/đăng nhập, quản lý vé đã đặt.
-- Trang tin tức, khuyến mãi và thông tin rạp.
+## Key features
+- Browse movies, movie details, and showtimes by cinema/region.
+- Select showtime, seat layout, hold seats, and book tickets.
+- Add food/combos before checkout.
+- Online payment via VNPay and seat status updates after payment.
+- Register/login and view booked tickets.
+- News, promotions, and cinema information pages.
 
 ## Tech stack
 - **.NET 8** + **ASP.NET Core MVC (Razor Views)**.
-- **Bootstrap**, **jQuery**, **jQuery Validation** cho giao diện và tương tác.
-- **Newtonsoft.Json** để xử lý JSON từ API.
-- **VNPay** cho luồng thanh toán.
-- **QRCoder** phục vụ tạo QR cho vé.
-- **Session** và **Localization (vi/en)**.
-- **Docker/Compose** cho triển khai.
+- **Bootstrap**, **jQuery**, **jQuery Validation** for UI and interactions.
+- **Newtonsoft.Json** for JSON processing.
+- **VNPay** payment integration.
+- **QRCoder** for ticket QR generation.
+- **Session** and **Localization (vi/en)**.
+- **Docker/Compose** for deployment.
 
-## Kiến trúc tổng quan (WebUser)
-- **Controllers** xử lý luồng đặt vé, phim/rạp, tài khoản, tin tức.
+## High-level architecture (WebUser)
+- **Controllers** handle booking flow, movies/cinemas, accounts, news.
 - **Services**: VNPay + Transaction.
-- **Models/Views**: mô hình dữ liệu và giao diện Razor.
-- **Middleware**: kiểm tra token cho các luồng cần xác thực.
-- **HttpClient** gọi API backend.
+- **Models/Views**: data models and Razor views.
+- **Middleware**: token validation for protected flows.
+- **HttpClient** to call the backend API.
 
-## Backend API tích hợp
-Backend được triển khai tại: **https://github.com/nguyenxuanbac88/HubCinema-API**
+## Backend API integration
+Backend repository: **https://github.com/nguyenxuanbac88/HubCinema-API**
 
-Tóm tắt API:
-- **Mục tiêu**: Backend cho hệ thống đặt vé xem phim online, quản trị rạp/phim/suất chiếu, đặt ghế, combo đồ ăn, hóa đơn, báo cáo và quản lý nội dung.
-- **Công nghệ**: ASP.NET Core Web API (.NET 8), Entity Framework Core + SQL Server, Redis, JWT, Swagger, SMTP email; triển khai Docker/compose.
-- **Kiến trúc**: Controllers → Services/AdminServices → Data (DbContext) → Models/Entities + DTOs + Helpers.
-- **Chức năng chính**:
-  - Xác thực & tài khoản: đăng nhập/đăng ký JWT, OTP quên mật khẩu, đổi email/đổi mật khẩu, logout.
-  - Public API: danh sách/chi tiết rạp, phim, đồ ăn, phòng; combo theo rạp.
-  - Lịch chiếu: lọc theo khu vực/rạp, ngày chiếu, suất chiếu theo phim/ngày, timeline theo ngày/rạp.
-  - Đặt vé: tạo hóa đơn, lưu ghế đã đặt, lưu đồ ăn, cập nhật trạng thái ghế.
-  - Ghế & layout: giữ ghế tạm bằng Redis, layout + giá theo loại, cấu hình loại ghế.
-  - Quản trị: CRUD rạp/phim/phòng/đồ ăn, gán combo, dashboard thống kê, quản lý users + hóa đơn.
-  - Nội dung: CRUD banner, tin tức/danh mục.
-  - Hóa đơn: lấy danh sách hóa đơn, theo user token, theo id.
-  - Health check: kiểm tra DB/Redis/SMTP.
-- **Mô hình dữ liệu**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
+API summary:
+- **Goal**: Backend for online movie ticket booking, cinema/movie/showtime management, seat booking, food combos, invoices, reports, and content management.
+- **Tech**: ASP.NET Core Web API (.NET 8), EF Core + SQL Server, Redis, JWT, Swagger, SMTP email; Docker/compose deployment.
+- **Architecture**: Controllers → Services/AdminServices → Data (DbContext) → Models/Entities + DTOs + Helpers.
+- **Main features**:
+  - Auth & accounts: JWT login/register, OTP password reset, OTP email change, password change, logout.
+  - Public API: list/detail cinemas, movies, foods, rooms; combos by cinema.
+  - Showtimes: filter by region/cinema, show dates, showtimes by movie/date/region/cinema, conflict checking, daily timelines.
+  - Booking: create invoices, save booked seats and food, update paid seat status.
+  - Seats & layout: temporary seat holds via Redis, layout/pricing by showtime/seat type, JSON layout creation, seat-type configuration by row.
+  - Admin: CRUD cinemas/movies/rooms/foods, assign combos, dashboard stats, manage users + invoices.
+  - Content: CRUD banners and news/categories.
+  - Invoices: list all, by user token, by id.
+  - Health check: DB/Redis/SMTP response checks.
+- **Key data models**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
 
-## Cấu hình
-- **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (xem giá trị mặc định trong file cấu hình).
-  **Lưu ý bảo mật**: khi triển khai production, **bắt buộc** dùng HTTPS; nếu backend chưa có TLS, hãy đặt reverse proxy/ingress để mã hóa đường truyền.
-- **VNPay**: cấu hình tại `appsettings.json` và `appsettings.Development.json` (callback URL khi dev).
-- Có thể override cấu hình qua **Environment Variables** khi chạy production.
+## Testing (Selenium)
+All four members (Khá, Duy Khoa, Bắc, Thành) also wrote Selenium unit/UI tests for this project.
+Test project: **https://github.com/nguyenxuanbac88/sqa-testing-report**
 
-## Chạy local
+## Configuration
+- **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (see default value in the config file).
+  **Security note**: in production, **HTTPS is required**; if the backend has no TLS, place a reverse proxy/ingress to encrypt traffic.
+- **VNPay**: configured in `appsettings.json` and `appsettings.Development.json` (callback URL for dev).
+- Config can be overridden via **Environment Variables** in production.
+
+## Run locally
 ```bash
 dotnet restore
 dotnet run
 ```
-Mặc định chạy tại: `http://localhost:5020` (theo `launchSettings.json`).
+Default URL: `http://localhost:5020` (from `launchSettings.json`).
 
-## Chạy bằng Docker
+## Run with Docker
 ```bash
 docker-compose up -d --build
 ```
-Mặc định expose cổng `8080`. Xem thêm tại `DOCKER_DEPLOYMENT.md`.
+Default exposed port: `8080`. See `DOCKER_DEPLOYMENT.md` for details.
