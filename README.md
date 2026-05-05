@@ -1,76 +1,95 @@
-# HubCinema WebUser
+# HubCinema-WebUser (Customer Frontend)
 
-End-user web application for the online movie ticket booking system. The app focuses on browsing movies, selecting showtimes and seats, adding combos, and completing payments while consuming data from the HubCinema backend API.
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET%208-512BD4?logo=dotnet&logoColor=white&style=flat" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Core%20MVC-512BD4?logo=dotnet&logoColor=white&style=flat" />
+  <img src="https://img.shields.io/badge/Razor%20Views-512BD4?logo=dotnet&logoColor=white&style=flat" />
+  <img src="https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=flat" />
+  <img src="https://img.shields.io/badge/jQuery-0769AD?logo=jquery&logoColor=white&style=flat" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=flat" />
+</p>
 
-## Team
-- **WebUser development**: Khá, Duy Khoa
-- **Backend API development**: Bắc, Thành
-- **Database design**: Khá, Duy Khoa, Bắc, Thành
-- **Testing (Selenium UI/integration)**: Khá, Duy Khoa, Bắc, Thành
+## Introduction
+HubCinema-WebUser is the customer-facing frontend of the HubCinema movie ticketing system. It lets users browse movies, choose cinemas/showtimes, select seats, add combos, and pay online through the central API.
 
-## Key features
-- Browse movies, movie details, and showtimes by cinema/region.
-- Select showtime, seat layout, hold seats, and book tickets.
-- Add food/combos before checkout.
-- Online payment via VNPay/PayPal and seat status updates after payment.
-- Register/login and view booked tickets.
-- News, promotions, and cinema information pages.
+Other components of the system:
+* **HubCinemaAPI (Backend for User & Admin):** https://github.com/Khanguyen2005/HubCinemaAPI (recommended)
+* **HubCinema-WebAdmin (Admin Frontend):** https://github.com/Khanguyen2005/HubCinema-WebAdmin
+* **sqa-testing-report (Automated Testing):** https://github.com/Khanguyen2005/sqa-testing-report
 
-## Tech stack
-- **.NET 8** + **ASP.NET Core MVC (Razor Views)**.
-- **Bootstrap**, **jQuery**, **jQuery Validation** for UI and interactions.
-- **Newtonsoft.Json** for JSON processing.
-- **VNPay** and **PayPal** payment integration.
-- **QRCoder** for ticket QR generation.
-- **Session** and **Localization (vi/en)**.
-- **Docker/Compose** for deployment.
+> Note: These links follow the **Khanguyen2005** namespace.
+> Legacy HubCinemaAPI repo (for historical reference): https://github.com/nguyenxuanbac88/HubCinema-API
 
-## High-level architecture (WebUser)
-- **Controllers** handle booking flow, movies/cinemas, accounts, news.
-- **Services**: VNPay, PayPal + Transaction.
-- **Models/Views**: data models and Razor views.
-- **Middleware**: token validation for protected flows.
-- **HttpClient** to call the backend API.
+## Tech Stack
+| Category | Technology | Notes |
+| --- | --- | --- |
+| Framework/Runtime | .NET 8, ASP.NET Core MVC | Web app following the MVC pattern |
+| View Engine | Razor Views | Server-side rendering |
+| UI Library | Bootstrap, jQuery | UI components and interactions |
+| Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Client-side validation |
+| HTTP Client | HttpClient | Calls HubCinemaAPI |
+| JSON | Newtonsoft.Json | JSON processing |
+| Payment | VNPay, PayPal | Online payment |
+| QR | QRCoder | QR generation for tickets |
+| Session & Localization | ASP.NET Core Session, Localization (vi/en) | State and localization |
+| Containerization | Docker, Docker Compose | Packaging and deployment |
 
-## Backend API integration
-Backend repository: **https://github.com/nguyenxuanbac88/HubCinema-API**
+## Architecture & Folder Structure
+```
+Controllers/        # Request handling (account, booking, payment, ...)
+Models/             # DTOs and data models
+Views/              # Razor views
+Services/           # Payment/transaction services (VNPay/PayPal)
+middlewares/        # Token validation middleware
+Libraries/          # Helper libraries (VNPay/PayPal helpers)
+Resources/          # Localization resources (vi/en)
+wwwroot/            # Static assets (css, js, lib, images)
+Properties/         # launchSettings
+appsettings*.json   # App configuration (ApiSettings, VNPay, PayPal, ...)
+```
 
-API summary:
-- **Goal**: Backend for online movie ticket booking, cinema/movie/showtime management, seat booking, food combos, invoices, reports, and content management.
-- **Tech**: ASP.NET Core Web API (.NET 8), EF Core + SQL Server, Redis, JWT, Swagger, SMTP email; Docker/compose deployment.
-- **Architecture**: Controllers → Services/AdminServices → Data (DbContext) → Models/Entities + DTOs + Helpers.
-- **Main features**:
-  - Auth & accounts: JWT login/register, OTP password reset, OTP email change, password change, logout.
-  - Public API: list/detail cinemas, movies, foods, rooms; combos by cinema.
-  - Showtimes: filter by region/cinema, show dates, showtimes by movie/date/region/cinema, conflict checking, daily timelines.
-  - Booking: create invoices, save booked seats and food, update paid seat status.
-  - Seats & layout: temporary seat holds via Redis, layout/pricing by showtime/seat type, JSON layout creation, seat-type configuration by row.
-  - Admin: CRUD cinemas/movies/rooms/foods, assign combos, dashboard stats, manage users + invoices.
-  - Content: CRUD banners and news/categories.
-  - Invoices: list all, by user token, by id.
-  - Health check: DB/Redis/SMTP response checks.
-- **Key data models**: User, Movie, Cinema, Room, Showtime, ShowtimeType, SeatTypeInRoom, BookedSeat, Invoice, InvoiceFood, Food, Combo_Cinema, Banner, News, Category.
-
-## Testing (Selenium)
-The team members (Khá, Duy Khoa, Bắc, Thành) contributed Selenium UI/integration tests for this project.
-Test project: **https://github.com/nguyenxuanbac88/sqa-testing-report**
-
-## Configuration
-- **API base URL**: `appsettings.json` → `ApiSettings:BaseUrl` (see default value in the config file).
-- **Security**: in production, **HTTPS is required**. Ensure TLS is enabled on the backend or terminate TLS at a reverse proxy/ingress.
-- **VNPay**: configured in `appsettings.json` and `appsettings.Development.json` (callback URL for dev).
-- **PayPal**: configure credentials/return URLs in `appsettings.json` or environment variables when enabled.
-- Config can be overridden via **Environment Variables** in production.
-
-## Run locally
+## Getting Started
+### Installation & Local Run
 ```bash
+git clone https://github.com/Khanguyen2005/HubCinema-WebUser.git
+cd HubCinema-WebUser
 dotnet restore
+```
+
+### Environment Configuration
+The app reads the backend base URL from `ApiSettings:BaseUrl`. You can configure it via **environment variables** or update `appsettings.Development.json`/`appsettings.json` to point to HubCinemaAPI.
+
+**macOS/Linux (bash/zsh):**
+```bash
+export ApiSettings__BaseUrl="https://your-hubcinema-api-domain/api"
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:ApiSettings__BaseUrl = "https://your-hubcinema-api-domain/api"
+```
+
+> Tip: you can set a default value in `appsettings.Development.json` for local development.
+
+### Run Application
+```bash
 dotnet run
 ```
-Default URL: `http://localhost:5020` (from `launchSettings.json`).
+Default URL: `http://localhost:5020` (from `Properties/launchSettings.json`).
 
-## Run with Docker
-```bash
-docker-compose up -d --build
-```
-Default exposed port: `8080`. See `DOCKER_DEPLOYMENT.md` for details.
+## Key Features
+- Register an account.
+- Log in.
+- Browse movies (now showing/coming soon) and view details.
+- Filter cinemas, schedules, and select showtimes.
+- Choose seats on the seat layout and temporarily hold seats.
+- Select food/drink combos before checkout.
+- Online payment (VNPay, PayPal) and receive tickets.
+- View booking history.
+- View news, promotions, and cinema information.
+
+## Contributors
+- Khá
+- Bắc
+- Khoa
+- Thành
