@@ -13,7 +13,7 @@
 HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
 
 Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI. Khuyến nghị: sử dụng repo này.
+- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến nghị sử dụng repo này)
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
 
@@ -29,7 +29,7 @@ Hệ sinh thái HubCinema:
 | Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Kiểm tra dữ liệu trên client |
 | HTTP Client | HttpClient | Gọi HubCinemaAPI |
 | JSON | Newtonsoft.Json | Xử lý dữ liệu JSON |
-| Payment | VNPay | Thanh toán trực tuyến (chỉ hỗ trợ VNPay trong repo này) |
+| Payment | VNPay | Thanh toán trực tuyến |
 | QR | QRCoder | Tạo QR cho vé |
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
 | Containerization | Docker, Docker Compose | Đóng gói và triển khai |
@@ -84,7 +84,8 @@ dotnet run
 Mặc định ứng dụng chạy tại: `http://localhost:5020` (theo `Properties/launchSettings.json`).
 
 ## Tính năng chính
-- Xác thực người dùng: đăng ký, đăng nhập.
+- Đăng ký tài khoản.
+- Đăng nhập.
 - Duyệt danh sách phim (đang chiếu/sắp chiếu), xem chi tiết phim.
 - Lọc rạp, lịch chiếu và chọn suất chiếu.
 - Chọn ghế theo sơ đồ, giữ ghế tạm thời.
