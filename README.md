@@ -29,25 +29,23 @@ Other components of the system:
 | Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Client-side validation |
 | HTTP Client | HttpClient | Calls HubCinemaAPI |
 | JSON | Newtonsoft.Json | JSON processing |
-| Payment | VNPay | Online payment |
+| Payment | VNPay, PayPal | Online payment |
 | QR | QRCoder | QR generation for tickets |
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | State and localization |
 | Containerization | Docker, Docker Compose | Packaging and deployment |
-
-> Note: This repo only supports VNPay; PayPal is out of scope. If your project integrates PayPal, update the configuration and documentation accordingly.
 
 ## Architecture & Folder Structure
 ```
 Controllers/        # Request handling (account, booking, payment, ...)
 Models/             # DTOs and data models
 Views/              # Razor views
-Services/           # Payment/transaction services
+Services/           # Payment/transaction services (VNPay/PayPal)
 middlewares/        # Token validation middleware
-Libraries/          # Helper libraries (VNPay helpers)
+Libraries/          # Helper libraries (VNPay/PayPal helpers)
 Resources/          # Localization resources (vi/en)
 wwwroot/            # Static assets (css, js, lib, images)
 Properties/         # launchSettings
-appsettings*.json   # App configuration (ApiSettings, VNPay, ...)
+appsettings*.json   # App configuration (ApiSettings, VNPay, PayPal, ...)
 ```
 
 ## Getting Started
@@ -86,7 +84,7 @@ Default URL: `http://localhost:5020` (from `Properties/launchSettings.json`).
 - Filter cinemas, schedules, and select showtimes.
 - Choose seats on the seat layout and temporarily hold seats.
 - Select food/drink combos before checkout.
-- Online payment (VNPay) and receive tickets.
+- Online payment (VNPay, PayPal) and receive tickets.
 - View booking history.
 - View news, promotions, and cinema information.
 
