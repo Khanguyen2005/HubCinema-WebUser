@@ -16,6 +16,7 @@ Hệ sinh thái HubCinema:
 - **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến nghị sử dụng repo này)
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
+
 > Ghi chú: Các liên kết trên theo namespace **Khanguyen2005** (theo mô tả dự án).
 > Tham khảo legacy repo (nếu cần đối chiếu lịch sử): https://github.com/nguyenxuanbac88/HubCinema-API
 
@@ -28,7 +29,7 @@ Hệ sinh thái HubCinema:
 | Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Kiểm tra dữ liệu trên client |
 | HTTP Client | HttpClient | Gọi HubCinemaAPI |
 | JSON | Newtonsoft.Json | Xử lý dữ liệu JSON |
-| Payment | VNPay | Thanh toán trực tuyến (PayPal chưa được tích hợp trong repo này) |
+| Payment | VNPay | Thanh toán trực tuyến (chỉ hỗ trợ VNPay trong repo này) |
 | QR | QRCoder | Tạo QR cho vé |
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
 | Containerization | Docker, Docker Compose | Đóng gói và triển khai |
