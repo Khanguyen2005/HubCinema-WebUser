@@ -18,7 +18,7 @@ Other components of the system:
 * **sqa-testing-report (Automated Testing):** https://github.com/Khanguyen2005/sqa-testing-report
 
 > Note: These links follow the **Khanguyen2005** namespace.
-> Legacy repo (for historical reference): https://github.com/nguyenxuanbac88/HubCinema-API
+> Legacy HubCinemaAPI repo (for historical reference): https://github.com/nguyenxuanbac88/HubCinema-API
 
 ## Tech Stack
 | Category | Technology | Notes |
