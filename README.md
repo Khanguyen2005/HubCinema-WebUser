@@ -16,6 +16,7 @@ Hệ sinh thái HubCinema:
 - **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
+> Ghi chú: Nếu các repo được fork hoặc chuyển tổ chức, hãy cập nhật lại đường dẫn tương ứng với không gian tên bạn đang sử dụng.
 
 ## Tech Stack
 | Nhóm | Công nghệ | Ghi chú |
