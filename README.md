@@ -13,7 +13,7 @@
 HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
 
 Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến nghị sử dụng repo này)
+- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến khích sử dụng repo này)
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
 
@@ -34,7 +34,7 @@ Hệ sinh thái HubCinema:
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
 | Containerization | Docker, Docker Compose | Đóng gói và triển khai |
 
-> Lưu ý: PayPal chưa được triển khai trong source hiện tại. Nếu dự án của bạn có tích hợp PayPal, hãy bổ sung lại cấu hình và tài liệu cho phù hợp.
+> Lưu ý: Repo này chỉ hỗ trợ VNPay; PayPal không nằm trong phạm vi triển khai hiện tại. Nếu dự án của bạn có tích hợp PayPal, hãy bổ sung lại cấu hình và tài liệu cho phù hợp.
 
 ## Kiến trúc & Cấu trúc thư mục
 ```
@@ -92,6 +92,7 @@ Mặc định ứng dụng chạy tại: `http://localhost:5020` (theo `Properti
 - Chọn combo đồ ăn/nước uống trước khi thanh toán.
 - Thanh toán trực tuyến (VNPay) và nhận vé.
 - Xem lịch sử vé đã đặt.
+- Xem tin tức, khuyến mãi và thông tin rạp.
 
 ## Contributors
 - Khá
