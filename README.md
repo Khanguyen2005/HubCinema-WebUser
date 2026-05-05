@@ -13,11 +13,11 @@
 HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
 
 Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến nghị sử dụng repo này)
+- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI. Khuyến nghị sử dụng repo này.
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
 
-> Ghi chú: Các liên kết trên theo namespace **Khanguyen2005** (theo mô tả dự án).
+> Ghi chú: Các liên kết trên theo namespace **Khanguyen2005**.
 > Tham khảo legacy repo (nếu cần đối chiếu lịch sử): https://github.com/nguyenxuanbac88/HubCinema-API
 
 ## Tech Stack
@@ -33,6 +33,8 @@ Hệ sinh thái HubCinema:
 | QR | QRCoder | Tạo QR cho vé |
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
 | Containerization | Docker, Docker Compose | Đóng gói và triển khai |
+
+> Lưu ý: PayPal chưa được triển khai trong source hiện tại. Nếu dự án của bạn có tích hợp PayPal, hãy bổ sung lại cấu hình và tài liệu cho phù hợp.
 
 ## Kiến trúc & Cấu trúc thư mục
 ```
