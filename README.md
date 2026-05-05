@@ -13,7 +13,7 @@
 HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
 
 Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI. Khuyến nghị sử dụng repo này.
+- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI. Khuyến nghị: sử dụng repo này.
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
 
@@ -75,7 +75,7 @@ export ApiSettings__BaseUrl="https://your-hubcinema-api-domain/api"
 $env:ApiSettings__BaseUrl = "https://your-hubcinema-api-domain/api"
 ```
 
-> Mẹo: có thể đặt giá trị mặc định trong `appsettings.Development.json` khi chạy local.
+> Mẹo: có thể đặt giá trị mặc định trong `appsettings.Development.json` khi chạy cục bộ.
 
 ### 4) Chạy ứng dụng
 ```bash
