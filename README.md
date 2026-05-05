@@ -9,61 +9,57 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=flat" />
 </p>
 
-## Giới thiệu
-HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
+## Introduction
+HubCinema-WebUser is the customer-facing frontend of the HubCinema movie ticketing system. It lets users browse movies, choose cinemas/showtimes, select seats, add combos, and pay online through the central API.
 
-Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến khích sử dụng repo này)
-- **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
-- **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
+Other components of the system:
+* **HubCinemaAPI (Backend for User & Admin):** https://github.com/Khanguyen2005/HubCinemaAPI (recommended)
+* **HubCinema-WebAdmin (Admin Frontend):** https://github.com/Khanguyen2005/HubCinema-WebAdmin
+* **sqa-testing-report (Automated Testing):** https://github.com/Khanguyen2005/sqa-testing-report
 
-> Ghi chú: Các liên kết trên theo namespace **Khanguyen2005**.
-> Tham khảo legacy repo (nếu cần đối chiếu lịch sử): https://github.com/nguyenxuanbac88/HubCinema-API
+> Note: These links follow the **Khanguyen2005** namespace.
+> Legacy repo (for historical reference): https://github.com/nguyenxuanbac88/HubCinema-API
 
 ## Tech Stack
-| Nhóm | Công nghệ | Ghi chú |
+| Category | Technology | Notes |
 | --- | --- | --- |
-| Framework/Runtime | .NET 8, ASP.NET Core MVC | Ứng dụng web theo mô hình MVC |
-| View Engine | Razor Views | Render giao diện phía server |
-| UI Library | Bootstrap, jQuery | Thành phần UI và tương tác |
-| Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Kiểm tra dữ liệu trên client |
-| HTTP Client | HttpClient | Gọi HubCinemaAPI |
-| JSON | Newtonsoft.Json | Xử lý dữ liệu JSON |
-| Payment | VNPay | Thanh toán trực tuyến |
-| QR | QRCoder | Tạo QR cho vé |
-| Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
-| Containerization | Docker, Docker Compose | Đóng gói và triển khai |
+| Framework/Runtime | .NET 8, ASP.NET Core MVC | Web app following the MVC pattern |
+| View Engine | Razor Views | Server-side rendering |
+| UI Library | Bootstrap, jQuery | UI components and interactions |
+| Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Client-side validation |
+| HTTP Client | HttpClient | Calls HubCinemaAPI |
+| JSON | Newtonsoft.Json | JSON processing |
+| Payment | VNPay | Online payment |
+| QR | QRCoder | QR generation for tickets |
+| Session & Localization | ASP.NET Core Session, Localization (vi/en) | State and localization |
+| Containerization | Docker, Docker Compose | Packaging and deployment |
 
-> Lưu ý: Repo này chỉ hỗ trợ VNPay; PayPal không nằm trong phạm vi triển khai hiện tại. Nếu dự án của bạn có tích hợp PayPal, hãy bổ sung lại cấu hình và tài liệu cho phù hợp.
+> Note: This repo only supports VNPay; PayPal is out of scope. If your project integrates PayPal, update the configuration and documentation accordingly.
 
-## Kiến trúc & Cấu trúc thư mục
+## Architecture & Folder Structure
 ```
-Controllers/        # Điều phối luồng nghiệp vụ (account, booking, payment, ...)
-Models/             # DTOs và model dữ liệu
+Controllers/        # Request handling (account, booking, payment, ...)
+Models/             # DTOs and data models
 Views/              # Razor views
-Services/           # Dịch vụ thanh toán/transaction
-middlewares/        # Middleware kiểm tra token
-Libraries/          # Thư viện hỗ trợ (VNPay helpers)
-Resources/          # Tài nguyên localization (vi/en)
+Services/           # Payment/transaction services
+middlewares/        # Token validation middleware
+Libraries/          # Helper libraries (VNPay helpers)
+Resources/          # Localization resources (vi/en)
 wwwroot/            # Static assets (css, js, lib, images)
 Properties/         # launchSettings
-appsettings*.json   # Cấu hình ứng dụng (ApiSettings, VNPay, ...)
+appsettings*.json   # App configuration (ApiSettings, VNPay, ...)
 ```
 
-## Cài đặt & Khởi chạy (Getting Started)
-### 1) Clone project
+## Getting Started
+### Installation & Local Run
 ```bash
 git clone https://github.com/Khanguyen2005/HubCinema-WebUser.git
 cd HubCinema-WebUser
-```
-
-### 2) Cài đặt dependencies
-```bash
 dotnet restore
 ```
 
-### 3) Cấu hình biến môi trường
-Dự án đọc Base URL của backend từ `ApiSettings:BaseUrl`. Bạn có thể cấu hình bằng **environment variables** hoặc cập nhật trực tiếp trong `appsettings.Development.json`/`appsettings.json` để trỏ tới HubCinemaAPI.
+### Environment Configuration
+The app reads the backend base URL from `ApiSettings:BaseUrl`. You can configure it via **environment variables** or update `appsettings.Development.json`/`appsettings.json` to point to HubCinemaAPI.
 
 **macOS/Linux (bash/zsh):**
 ```bash
@@ -75,27 +71,27 @@ export ApiSettings__BaseUrl="https://your-hubcinema-api-domain/api"
 $env:ApiSettings__BaseUrl = "https://your-hubcinema-api-domain/api"
 ```
 
-> Mẹo: có thể đặt giá trị mặc định trong `appsettings.Development.json` khi chạy cục bộ.
+> Tip: you can set a default value in `appsettings.Development.json` for local development.
 
-### 4) Chạy ứng dụng
+### Run Application
 ```bash
 dotnet run
 ```
-Mặc định ứng dụng chạy tại: `http://localhost:5020` (theo `Properties/launchSettings.json`).
+Default URL: `http://localhost:5020` (from `Properties/launchSettings.json`).
 
-## Tính năng chính
-- Đăng ký tài khoản.
-- Đăng nhập.
-- Duyệt danh sách phim (đang chiếu/sắp chiếu), xem chi tiết phim.
-- Lọc rạp, lịch chiếu và chọn suất chiếu.
-- Chọn ghế theo sơ đồ, giữ ghế tạm thời.
-- Chọn combo đồ ăn/nước uống trước khi thanh toán.
-- Thanh toán trực tuyến (VNPay) và nhận vé.
-- Xem lịch sử vé đã đặt.
-- Xem tin tức, khuyến mãi và thông tin rạp.
+## Key Features
+- Register an account.
+- Log in.
+- Browse movies (now showing/coming soon) and view details.
+- Filter cinemas, schedules, and select showtimes.
+- Choose seats on the seat layout and temporarily hold seats.
+- Select food/drink combos before checkout.
+- Online payment (VNPay) and receive tickets.
+- View booking history.
+- View news, promotions, and cinema information.
 
 ## Contributors
 - Khá
 - Bắc
-- Duy Khoa
+- Khoa
 - Thành
