@@ -13,10 +13,11 @@
 HubCinema-WebUser là giao diện dành cho khách hàng trong hệ thống bán vé xem phim HubCinema. Ứng dụng hỗ trợ người dùng duyệt phim, chọn rạp/suất chiếu, chọn ghế, đặt combo và thanh toán trực tuyến thông qua API trung tâm.
 
 Hệ sinh thái HubCinema:
-- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (hoặc https://github.com/nguyenxuanbac88/HubCinema-API nếu dùng repo gốc)
+- **HubCinemaAPI (Backend cho User & Admin)**: https://github.com/Khanguyen2005/HubCinemaAPI (khuyến nghị sử dụng repo này)
 - **HubCinema-WebAdmin (Frontend Quản trị viên)**: https://github.com/Khanguyen2005/HubCinema-WebAdmin
 - **sqa-testing-report (Automated Testing)**: https://github.com/Khanguyen2005/sqa-testing-report
 > Ghi chú: Các liên kết trên theo namespace **Khanguyen2005** (theo mô tả dự án).
+> Tham khảo legacy repo (nếu cần đối chiếu lịch sử): https://github.com/nguyenxuanbac88/HubCinema-API
 
 ## Tech Stack
 | Nhóm | Công nghệ | Ghi chú |
@@ -27,7 +28,7 @@ Hệ sinh thái HubCinema:
 | Form Validation | jQuery Validation, jQuery Validation Unobtrusive | Kiểm tra dữ liệu trên client |
 | HTTP Client | HttpClient | Gọi HubCinemaAPI |
 | JSON | Newtonsoft.Json | Xử lý dữ liệu JSON |
-| Payment | VNPay | Thanh toán trực tuyến (README cũ nhắc PayPal nhưng codebase hiện tại chưa thấy tích hợp) |
+| Payment | VNPay | Thanh toán trực tuyến (PayPal chưa được tích hợp trong repo này) |
 | QR | QRCoder | Tạo QR cho vé |
 | Session & Localization | ASP.NET Core Session, Localization (vi/en) | Lưu trạng thái và đa ngôn ngữ |
 | Containerization | Docker, Docker Compose | Đóng gói và triển khai |
